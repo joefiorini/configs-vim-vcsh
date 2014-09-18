@@ -2,4 +2,5 @@ plugin_src/
 backup/
 .netrwhist
 .DS_Store
-bundle/
+.vim/bundle/
+!.vim/bundle/vundle
