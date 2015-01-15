@@ -9,6 +9,8 @@ call vundle#rc()
 
 source ~/.vim/Vimfile
 
+" let g:haddock_browser="/Applications/Safari.app"
+
 "Set colorscheme with options
 let g:solarized_termcolors=256
 let g:solarized_termtrans=1

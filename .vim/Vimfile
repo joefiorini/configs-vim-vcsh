@@ -12,7 +12,6 @@ Bundle 'godlygeek/tabular'
 
 Bundle 'ujihisa/neco-ghc'
 
-Bundle 'tsaleh/vim-matchit'
 Bundle 'kana/vim-textobj-user'
 Bundle 'nelstrom/vim-textobj-rubyblock'
 
@@ -34,12 +33,15 @@ Bundle 'chase/vim-ansible-yaml'
 Bundle 'Arduino-syntax-file'
 Bundle 'pangloss/vim-javascript'
 Bundle 'mxw/vim-jsx'
-Bundle 'MarcWeber/vim-addon-nix'
 
 Bundle 'Shougo/vimproc.vim'
 Bundle 'mattn/webapi-vim'
 
+Bundle 'pbrisbin/vim-syntax-shakespeare'
+
 Bundle 'jplaut/vim-arduino-ino'
+
+Bundle 'bitc/vim-hdevtools'
 
 " Autocomplete
 Bundle 'Valloric/YouCompleteMe'
