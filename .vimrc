@@ -10,6 +10,7 @@ call vundle#rc()
 source ~/.vim/Vimfile
 
 " let g:haddock_browser="/Applications/Safari.app"
+let g:haddock_browser="chromium"
 
 "Set colorscheme with options
 let g:solarized_termcolors=256
@@ -48,6 +49,12 @@ set hidden                    "allow hiding buffers with unsaved changes
 
 set scrolloff=3               "add some breathing room at top and bottom of screen
 
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+" let g:syntastic_quiet_messages = {'level': 'warnings'}
+
 "only show the cursorline/col in gui mode
 if has("gui_running")
   set cursorline                "highlight current line
@@ -56,6 +63,7 @@ end
 
 set wildmenu                  "make tab completion act more like bash
 set wildmode=list:longest
+set wildignorecase
 set completeopt=menu,longest
 
 set switchbuf=useopen         "don't reopen already opened buffers
@@ -105,6 +113,7 @@ augroup END
 
 augroup WebDesign
   autocmd FileType css,scss,less,styl   set omnifunc=csscomplete#CompleteCSS
+  autocmd FileType js,javascript        set sw=2 sts=2 et
 augroup END
 augroup RubyOpts
 
@@ -145,11 +154,19 @@ au FileType json setlocal equalprg=python\ -m\ json.tool
 set statusline=%F%m%r%h%w\ [TYPE=%Y]\ \ \ \ \ \ \ \ \ \ \ \ [POS=%2l,%2v][%p%%]\ \ \ \ \ \ \ \ \ \ \ \ [LEN=%L]
 set laststatus=2
 
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+
 let g:user_zen_settings = {
 \  'indentation' : '  ',
 \}
 
 let g:gist_clip_command = 'pbcopy'
+
+let g:syntastic_html_tidy_ignore_errors = ['proprietary attribute "', ' is not recognized', 'discarding unexpected ', 'trimming empty ']
+let g:syntastic_less_lessc_args = ['--include-paths=awx/ui/static/lib']
 
 set grepprg=ack
 function! Ack(args)
@@ -259,7 +276,7 @@ nmap <LEADER>g :call ScrubQuotes()<CR>
 cnoremap %% <C-R>=expand("%:h")<cr>/
 map <leader>e :e %%
 map <leader>a :tabe %%
-map <leader>n :Rename 
+map <leader>n :Move %%
 map <leader>k :!mkdir -p %%
 
 " Customizations to make tabular plugin easier to use from https://gist.github.com/287147
