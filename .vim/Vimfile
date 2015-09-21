@@ -33,6 +33,7 @@ Bundle 'chase/vim-ansible-yaml'
 Bundle 'Arduino-syntax-file'
 Bundle 'pangloss/vim-javascript'
 Bundle 'mxw/vim-jsx'
+Bundle 'dag/vim-fish'
 
 Bundle 'Shougo/vimproc.vim'
 Bundle 'mattn/webapi-vim'
